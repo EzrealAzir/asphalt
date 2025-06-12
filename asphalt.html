@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asphalt: Tu Destino de Velocidad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales para el cuerpo de la página */
+        body {
+            /* Colores de fondo oscuros */
+            background-color: #0d011f; /* Púrpura muy oscuro, casi negro */
+            color: #E0E0E0; /* Texto claro general */
+            font-family: 'Rajdhani', sans-serif; /* Fuente un poco más futurista */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            position: relative;
+            /* Patrón de fondo que evoca velocidad/tecnología */
+            background-image: 
+                linear-gradient(to right, #1a023b 1px, transparent 1px),
+                linear-gradient(to bottom, #1a023b 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-attachment: fixed; /* Para que el patrón se mantenga fijo al scroll */
+        }
+
+        /* Estilos para el encabezado principal de la página */
+        header {
+            background-color: #1a023b; /* Púrpura oscuro para el encabezado */
+            color: #FFE500; /* Amarillo eléctrico para el título principal */
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 3px solid #7B00FF; /* Púrpura más brillante para el borde */
+            box-shadow: 0 5px 15px rgba(123, 0, 255, 0.4); /* Sombra púrpura para el efecto neón */
+            position: relative;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif; /* Fuente muy futurista para el título */
+            margin: 0;
+            font-size: 3.5em; /* Título mucho más grande y audaz */
+            text-shadow: 0 0 15px #FFE500, 0 0 25px #FFE500, 0 0 35px #FFE500; /* Efecto neón amarillo */
+            letter-spacing: 3px; /* Más espaciado para un look impactante */
+            text-transform: uppercase;
+        }
+
+        header p {
+            margin-top: 15px;
+            font-size: 1.3em;
+            color: #FFD700; /* Dorado/Amarillo suave */
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Estilos para la barra de navegación */
+        nav {
+            background-color: #2a035d; /* Púrpura medio para la navegación */
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: 2px solid #7B00FF;
+            box-shadow: 0 3px 10px rgba(123, 0, 255, 0.3);
+            position: sticky; /* Menú pegajoso al hacer scroll */
+            top: 0;
+            z-index: 9;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 25px;
+        }
+
+        nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 12px 25px;
+            border-radius: 5px; /* Ligeramente anguloso */
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            text-transform: uppercase;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+            border: 1px solid transparent;
+        }
+
+        nav ul li a:hover {
+            background-color: #FFE500; /* Amarillo eléctrico al pasar el ratón */
+            color: #0d011f; /* Púrpura oscuro para el texto */
+            transform: translateY(-3px) scale(1.05); /* Efecto de elevación y pequeño agrandamiento */
+            box-shadow: 0 0 15px #FFE500, 0 0 25px #FFE500; /* Efecto neón */
+            border-color: #FFE500;
+        }
+
+        /* Estilos para las secciones de contenido */
+        .section {
+            padding: 50px 30px; /* Más padding para que el contenido respire */
+            margin: 40px auto; /* Más margen entre secciones */
+            background-color: #1a023b; /* Púrpura oscuro para los contenedores */
+            border-radius: 8px; /* Pequeño redondeo */
+            box-shadow: 0 0 25px rgba(123, 0, 255, 0.5); /* Sombra púrpura para el neón */
+            max-width: 1200px; /* Ancho máximo para el contenido */
+            line-height: 1.8;
+            border: 1px solid #7B00FF; /* Borde sutil */
+        }
+
+        .section h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #FFE500; /* Amarillo eléctrico para los títulos de sección */
+            border-bottom: 2px solid #7B00FF;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 2.8em;
+            text-shadow: 0 0 10px #FFE500, 0 0 20px #FFE500; /* Efecto neón */
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .section h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00BCD4; /* Azul/Cian para subtítulos */
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-left: 6px solid #FFE500; /* Borde a la izquierda para destacar con amarillo */
+            padding-left: 20px;
+            text-shadow: 0 0 8px rgba(0, 188, 212, 0.6);
+        }
+
+        .section p {
+            margin-bottom: 18px;
+            font-size: 1.1em;
+            color: #D0D0D0;
+        }
+
+        .section ul {
+            list-style-type: none; /* Quitamos las viñetas por defecto */
+            padding: 0;
+            margin-left: 0; /* Aseguramos que no haya margen izquierdo */
+            margin-bottom: 30px;
+        }
+
+        .section ul li {
+            position: relative;
+            padding-left: 35px; /* Espacio para el ícono personalizado */
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .section ul li::before {
+            content: '»'; /* Flecha futurista como viñeta */
+            color: #FFE500; /* Color amarillo eléctrico */
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -2px;
+            line-height: 1.6;
+            text-shadow: 0 0 8px #FFE500;
+        }
+
+        /* Estilos para todas las tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            font-size: 1.05em;
+            min-width: 500px;
+            box-shadow: 0 0 20px rgba(123, 0, 255, 0.4);
+            background-color: #2a035d; /* Púrpura medio para la tabla */
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #7B00FF;
+        }
+        table thead tr {
+            background-color: #3f0580; /* Púrpura más oscuro para el encabezado de tabla */
+            color: #FFFFFF;
+            text-align: left;
+            border-bottom: 2px solid #FFE500; /* Borde amarillo para el encabezado */
+        }
+        table th,
+        table td {
+            padding: 18px 22px; /* Más padding para celdas */
+            border: 1px solid #4a069e; /* Bordes de celdas en tono púrpura */
+            vertical-align: middle;
+        }
+        table tbody tr:nth-of-type(even) {
+            background-color: #1a023b; /* Filas pares en un púrpura más oscuro */
+        }
+        table tbody tr:last-of-type {
+            border-bottom: none;
+        }
+        table tbody tr:hover {
+            background-color: #3f0580; /* Resaltado al pasar el ratón */
+            color: #FFE500; /* Texto amarillo al pasar el ratón */
+            box-shadow: inset 0 0 10px rgba(255, 229, 0, 0.3); /* Brillo interno al pasar */
+        }
+        table strong {
+            color: #FFE500; /* Nombres de coches/mejoras en amarillo */
+        }
+        table img {
+            max-width: 90px; /* Tamaño máximo para las imágenes en tablas */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 4px;
+            border: 2px solid #7B00FF; /* Borde púrpura para las imágenes */
+            box-shadow: 0 0 10px rgba(123, 0, 255, 0.3);
+        }
+
+        /* Estilos para imágenes dentro de las secciones */
+        .section img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 229, 0, 0.5), 0 0 30px rgba(123, 0, 255, 0.5); /* Doble sombra de neón */
+            border: 2px solid #7B00FF;
+        }
+
+        /* Estilos para tarjetas de coche */
+        .car-card {
+            background-color: #2a035d; /* Púrpura medio */
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 0 15px rgba(123, 0, 255, 0.4);
+            border: 1px solid #7B00FF;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .car-card:hover {
+            transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
+            box-shadow: 0 0 25px rgba(255, 229, 0, 0.6), 0 0 35px rgba(123, 0, 255, 0.6); /* Neón más intenso */
+        }
+        .car-card h3 {
+            color: #FFE500; /* Título de tarjeta en amarillo eléctrico */
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-shadow: 0 0 10px #FFE500;
+            border-left: none; /* Eliminar el borde izquierdo del h3 de sección */
+            padding-left: 0;
+        }
+        .car-card img {
+            max-width: 90%; /* Ajuste de tamaño para tarjetas */
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 6px;
+            border: 2px solid #FFE500; /* Borde amarillo para las imágenes de coche */
+            box-shadow: 0 0 15px rgba(255, 229, 0, 0.4);
+        }
+        .car-card ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        .car-card ul li {
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #ccc;
+            font-size: 1.05em;
+            position: relative;
+            padding-left: 0; /* Reiniciar padding-left */
+        }
+        .car-card ul li::before {
+            content: none; /* Quitar la flecha del li de la tarjeta */
+        }
+        .car-card ul li strong {
+            color: #7B00FF; /* Púrpura brillante para los valores de las estadísticas */
+            text-shadow: 0 0 5px rgba(123, 0, 255, 0.5);
+        }
+
+        /* Estilos para formularios (Contacto) */
+        form {
+            background-color: #2a035d;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(123, 0, 255, 0.4);
+            margin-top: 35px;
+            border: 1px solid #7B00FF;
+        }
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #00BCD4;
+            font-size: 1.1em;
+            text-shadow: 0 0 5px rgba(0, 188, 212, 0.4);
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: calc(100% - 24px); /* Ancho completo menos padding y border */
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #7B00FF;
+            border-radius: 6px;
+            background-color: #1a023b;
+            color: #E0E0E0;
+            font-size: 1em;
+            box-shadow: inset 0 0 5px rgba(123, 0, 255, 0.3);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        form input[type="text"]:focus,
+        form input[type="email"]:focus,
+        form textarea:focus {
+            border-color: #FFE500; /* Resaltar al enfocar con amarillo */
+            outline: none;
+            box-shadow: inset 0 0 8px rgba(255, 229, 0, 0.6), 0 0 10px rgba(255, 229, 0, 0.6);
+        }
+        form button {
+            background-color: #FFE500;
+            color: #0d011f;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(255, 229, 0, 0.5);
+        }
+        form button:hover {
+            background-color: #FFD700; /* Amarillo un poco más oscuro al pasar el ratón */
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px #FFE500, 0 0 30px #FFE500; /* Efecto neón más fuerte */
+        }
+
+        /* Estilos para el pie de página */
+        footer {
+            text-align: center;
+            padding: 35px;
+            margin-top: 70px;
+            background-color: #1a023b;
+            color: #888;
+            border-top: 3px solid #7B00FF;
+            box-shadow: 0 -5px 15px rgba(123, 0, 255, 0.4);
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            header p {
+                font-size: 1.1em;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 5px 0;
+            }
+            nav ul li a {
+                padding: 10px 20px;
+            }
+            .section {
+                padding: 30px 20px;
+                margin: 25px auto;
+            }
+            .section h2 {
+                font-size: 2.2em;
+                padding-bottom: 15px;
+                margin-bottom: 30px;
+            }
+            .section h3 {
+                font-size: 1.6em;
+                margin-top: 30px;
+                margin-bottom: 15px;
+                padding-left: 15px;
+            }
+            .section ul li {
+                padding-left: 30px;
+                font-size: 1em;
+            }
+            .section ul li::before {
+                font-size: 1.3em;
+            }
+            table {
+                min-width: unset;
+                font-size: 0.9em;
+            }
+            table th,
+            table td {
+                padding: 12px 15px;
+            }
+            table img {
+                max-width: 70px;
+            }
+            .car-card {
+                padding: 20px;
+                margin: 25px 0;
+            }
+            .car-card h3 {
+                font-size: 1.6em;
+            }
+            form {
+                padding: 25px;
+            }
+            form input[type="text"],
+            form input[type="email"],
+            form textarea {
+                width: calc(100% - 20px);
+            }
+            form button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+                letter-spacing: 2px;
+            }
+            header p {
+                font-size: 1em;
+            }
+            nav ul li {
+                margin: 3px 0;
+            }
+            nav ul li a {
+                padding: 8px 10px;
+                font-size: 0.9em;
+            }
+            .section {
+                padding: 20px 15px;
+                margin: 20px auto;
+            }
+            .section h2 {
+                font-size: 1.8em;
+                letter-spacing: 1px;
+            }
+            .section h3 {
+                font-size: 1.4em;
+                padding-left: 10px;
+            }
+            table {
+                font-size: 0.85em;
+            }
+            table th,
+            table td {
+                padding: 10px;
+            }
+            .car-card h3 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ASPHALT LEGENDS</h1>
+        <p>Domina la Pista. Conquista el Futuro.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#vehiculos">Coches</a></li>
+            <li><a href="#mejoras">Garage</a></li>
+            <li><a href="#modos-juego">Modos</a></li>
+            <li><a href="#comunidad">Comunidad</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="inicio" class="section">
+            <h2>BIENVENIDO AL CIRCUITO</h2>
+            <p>Prepárate para la máxima experiencia de carreras arcade con la saga <strong>Asphalt</strong> de Gameloft. Desde sus inicios, Asphalt ha redefinido el género móvil con **gráficos de vanguardia, acción trepidante y una colección inigualable de vehículos de élite**. Si la velocidad corre por tus venas, este es tu destino.</p>
+            <p>Siente la adrenalina al pisar el acelerador, dominar los derrapes perfectos y activar el nitro para dejar a tus rivales atrás. ¡Explora nuestra base de datos para desentrañar los secretos de la victoria y convertirte en una leyenda de la pista!</p>
+            <center><img src="https://placehold.co/1200x600/7B00FF/FFE500?text=ASPHALT+RACING+ZONE" alt="Zona de Carreras de Asphalt con coches de neón" width="1200" height="600"></center>
+            <p>¿Listo para quemar llanta? Navega por nuestras secciones y descubre los coches más codiciados, las mejoras esenciales y los modos de juego que te mantendrán al límite.</p>
+        </section>
+
+        <section id="vehiculos" class="section">
+            <h2>COCHES: MÁQUINAS DE INGENIERÍA</h2>
+            <p>Tu garaje es tu arsenal. Descubre la asombrosa variedad de **vehículos de lujo, superdeportivos e hipercoches** que puedes coleccionar, mejorar y desatar en las pistas de Asphalt.</p>
+
+            <h3>CATEGORÍAS DE CLASIFICACIÓN:</h3>
+            <ul>
+                <li><strong>Clase D:</strong> El punto de partida. Coches equilibrados para dominar las habilidades básicas de carrera.</li>
+                <li><strong>Clase C:</strong> Un escalón hacia la potencia. Vehículos con mayor velocidad y manejo para desafíos intermedios.</li>
+                <li><strong>Clase B:</strong> Deportivos de alto rendimiento. Aquí la competición se vuelve más feroz, exigiendo precisión y velocidad.</li>
+                <li><strong>Clase A:</strong> Superdeportivos de élite. La antesala de la supremacía, con un balance excepcional de todas las estadísticas.</li>
+                <li><strong>Clase S:</strong> Hipercóches legendarios. Los vehículos más rápidos, exclusivos y poderosos del universo Asphalt. Pura adrenalina.</li>
+            </ul>
+
+            <h3>MODELOS DESTACADOS:</h3>
+            <div class="car-card">
+                <h3>Lamborghini Terzo Millennio</h3>
+                <img src="https://placehold.co/700x400/FFE500/7B00FF?text=Lamborghini+Terzo+Millennio+Neon" alt="Lamborghini Terzo Millennio con luces de neón" width="700" height="400">
+                <p>Una bestia futurista de **Clase S**, conocido por su increíble velocidad máxima y un nitro devastador. Su diseño lo hace inconfundible en la pista.</p>
+                <ul>
+                    <li>**Velocidad Máxima:** 90/100</li>
+                    <li>**Aceleración:** 85/100</li>
+                    <li>**Manejo:** 75/100</li>
+                    <li>**Nitro:** 95/100</li>
+                </ul>
+            </div>
+
+            <div class="car-card">
+                <h3>Ferrari LaFerrari Aperta</h3>
+                <img src="https://placehold.co/700x400/7B00FF/FFE500?text=Ferrari+LaFerrari+Aperta+Futuristic" alt="Ferrari LaFerrari Aperta en estilo futurista" width="700" height="400">
+                <p>Un icono italiano de **Clase A**, que representa el equilibrio perfecto entre velocidad pura y un manejo excepcional. Ideal para circuitos técnicos.</p>
+                <ul>
+                    <li>**Velocidad Máxima:** 85/100</li>
+                    <li>**Aceleración:** 80/100</li>
+                    <li>**Manejo:** 88/100</li>
+                    <li>**Nitro:** 70/100</li>
+                </ul>
+            </div>
+
+            <p>Descubre el resto de la colección en el juego y hazte con los vehículos que te llevarán a la cima de la clasificación.</p>
+        </section>
+
+        <section id="mejoras" class="section">
+            <h2>GARAGE: POTENCIA Y PERSONALIZA</h2>
+            <p>No basta con tener el coche, hay que **tunearlo y personalizarlo** para que sea una extensión de tu estilo y tu estrategia. Maximiza el rendimiento y haz que tu máquina destaque en cada carrera.</p>
+
+            <h3>SISTEMA DE MEJORAS:</h3>
+            <ul>
+                <li>
+                    <h4>MEJORAS DE RENDIMIENTO:</h4>
+                    <p>Invierte en la ingeniería de tu vehículo. Potencia la velocidad máxima, la aceleración, el manejo y la duración del nitro. Cada mejora requiere **créditos y planos** específicos del vehículo.</p>
+                    <ul>
+                        <li><strong>Velocidad:</strong> Desbloquea el potencial máximo del motor.</li>
+                        <li><strong>Aceleración:</strong> Dominio en las arrancadas y recuperación rápida tras los choques.</li>
+                        <li><strong>Manejo:</strong> Control total en las curvas más cerradas y derrapes precisos.</li>
+                        <li><strong>Nitro:</strong> Explosiones de velocidad más duraderas y potentes.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>PERSONALIZACIÓN ESTÉTICA:</h4>
+                    <p>Haz de tu coche una obra de arte rodante. Personaliza cada detalle para reflejar tu personalidad en la pista.</p>
+                    <ul>
+                        <li><strong>Pintura:</strong> Elige entre una paleta infinita de colores y acabados de alto brillo o mate.</li>
+                        <li><strong>Calcomanías:</strong> Añade diseños exclusivos y logotipos para un toque de distinción.</li>
+                        <li><strong>Rines:</strong> Selecciona entre una amplia gama de llantas para complementar el look agresivo de tu bólido.</li>
+                        <li><strong>Alerones:</strong> Modifica la aerodinámica y añade un toque futurista a la parte trasera.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <center><img src="https://placehold.co/1000x500/FFE500/7B00FF?text=ASPHALT+CUSTOMIZATION+LAB" alt="Laboratorio de Personalización de Coches en Asphalt" width="1000" height="500"></center>
+            <p>Experimenta con miles de combinaciones para crear el coche de tus sueños y dominar las pistas con un estilo inigualable.</p>
+        </section>
+
+        <section id="modos-juego" class="section">
+            <h2>MODOS DE JUEGO: EL RITMO DE LA COMPETICIÓN</h2>
+            <p>Asphalt te ofrece un universo de posibilidades para poner a prueba tus habilidades. Desde la progresión en solitario hasta los desafíos multijugador más intensos, la adrenalina nunca se detiene.</p>
+
+            <h3>ARENAS DE JUEGO:</h3>
+            <ul>
+                <li>
+                    <h4>MODO CARRERA (CAMPAÑA):</h4>
+                    <p>Avanza a través de distintas temporadas y series, desbloqueando nuevos coches y pistas a medida que completas objetivos y ganas estrellas. Es tu viaje para convertirte en una leyenda.</p>
+                </li>
+                <li>
+                    <h4>MODO MULTIJUGADOR (LIGAS):</h4>
+                    <p>Compite en tiempo real contra pilotos de todo el mundo. Asciende en las ligas globales, demuestra tu maestría y gana recompensas exclusivas.</p>
+                </li>
+                <li>
+                    <h4>EVENTOS ESPECIALES:</h4>
+                    <p>Participa en desafíos por tiempo limitado para ganar recompensas exclusivas, desde coches recién lanzados hasta planos raros y fichas valiosas. ¡La clave para expandir tu garaje!</p>
+                </li>
+                <li>
+                    <h4>CLUBES (EQUIPOS):</h4>
+                    <p>Únete o crea un club con amigos y jugadores afines. Colabora para alcanzar metas conjuntas, desbloquear hitos y obtener bonificaciones masivas. ¡La unión hace la fuerza!</p>
+                </li>
+            </ul>
+
+            <h3>CIRCUITOS LEGENDARIOS:</h3>
+            <p>Corre por entornos fotorrealistas y futuristas inspirados en ubicaciones globales, cada una con sus propios desafíos, atajos y puntos de salto.</p>
+            <ul>
+                <li>SHANGHÁI, China: Luces de neón y rascacielos imponentes.</li>
+                <li>EL CAIRO, Egipto: Antiguas pirámides y rutas desérticas de alta velocidad.</li>
+                <li>ROMA, Italia: Ruinas clásicas y calles llenas de historia reinventadas para la velocidad.</li>
+                <li>HIMALAYA, India: Picos nevados y caminos peligrosos al borde del abismo.</li>
+                <li>OSAKA, Japón: Distritos urbanos futuristas con rampas y giros vertiginosos.</li>
+            </ul>
+        </section>
+
+        <section id="comunidad" class="section">
+            <h2>COMUNIDAD Y DATAFLOW: CONECTA CON LA ÉLITE</h2>
+            <p>Forma parte de la comunidad global de Asphalt. Mantente al día con las últimas noticias, comparte tus logros y conecta con otros pilotos para dominar las pistas.</p>
+
+            <h3>ÚLTIMOS PROTOCOLOS (NOTICIAS):</h3>
+            <article>
+                <h4>¡TEMPORADA CIBERFUTURISTA LANZADA!</h4>
+                <p>Descubre los nuevos coches legendarios, eventos especiales y recompensas exclusivas de la Temporada X. ¡Prepárate para el futuro de las carreras!</p>
+                <time datetime="2025-06-10">10 DE JUNIO, 2025</time>
+            </article>
+            <article>
+                <h4>AJUSTE DE BALANCE DE RENDIMIENTO:</h4>
+                <p>Se han realizado optimizaciones en el rendimiento de ciertos vehículos para garantizar una competición justa y emocionante. ¡Revisa los detalles en el juego!</p>
+                <time datetime="2025-06-05">05 DE JUNIO, 2025</time>
+            </article>
+
+            <h3>CANALES DE COMUNICACIÓN:</h3>
+            <p>Conecta con los canales oficiales de Asphalt y la comunidad global:</p>
+            <ul>
+                <li><a href="https://www.facebook.com/AsphaltGame/" target="_blank">FACEBOOK OFICIAL</a></li>
+                <li><a href="https://twitter.com/asphalt" target="_blank">X (TWITTER) OFICIAL</a></li>
+                <li><a href="https://www.youtube.com/user/AsphaltGame" target="_blank">CANAL DE YOUTUBE</a></li>
+                <li><a href="https://discord.com/invite/asphalt" target="_blank">SERVIDOR DE DISCORD</a></li>
+            </ul>
+
+            <h3>FAQ: FRECUENCIA DE DATOS:</h3>
+            <p>¿Necesitas una respuesta rápida? Aquí tienes algunas preguntas frecuentes:</p>
+            <ul>
+                <li><strong>¿Cómo obtengo más créditos?</strong> Participa en eventos diarios, completa el modo carrera y abre paquetes de recompensas.</li>
+                <li><strong>¿Cuál es el mejor coche para empezar?</strong> Recomendamos invertir en vehículos de Clase D y C para optimizar tu progreso inicial y ganar experiencia.</li>
+                <li><strong>¿Cómo reporto un error?</strong> Utiliza el sistema de soporte integrado en la configuración del juego para enviar informes directamente a Gameloft.</li>
+            </ul>
+
+            <h3>TRANSMIÓN DE DATOS (CONTACTO):</h3>
+            <p>¿Tienes sugerencias para mejorar nuestra base de datos o quieres compartir tus logros? ¡Envía una transmisión segura!</p>
+            <form action="#" method="POST">
+                <label for="nombre">Nombre de Piloto:</label><br>
+                <input type="text" id="nombre" name="nombre" required><br><br>
+                <label for="email">Dirección de Conexión:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="mensaje">Mensaje (Data Packet):</label><br>
+                <textarea id="mensaje" name="mensaje" rows="6" required></textarea><br><br>
+                <button type="submit">TRANSMITIR DATOS</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Asphalt Fandom Database. Contenido no oficial.</p>
+        <p>Asphalt es una marca registrada de Gameloft. Todos los derechos reservados.</p>
+        <p>Potenciado por la velocidad y la pasión por los coches.</p>
+    </footer>
+
+</body>
+</html>
